@@ -1,21 +1,19 @@
-document.getElementById("getWeatherBtn").addEventListener("click", function () {
-  const apiKey = "YOUR_API_KEY_HERE"; // 🔁 Replace with your OpenWeatherMap API key
+document.getElementById("getWeatherBtn").addEventListener("click", () => {
+  const apiKey = "YOUR_API_KEY_HERE"; // ✅ Replace with real OpenWeatherMap API key
   const city = "London";
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-  fetch(apiUrl)
+  fetch(url)
     .then(response => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+      if (!response.ok) throw new Error("Failed to fetch weather");
       return response.json();
     })
     .then(data => {
-      const weather = data.weather[0].main;
-      document.getElementById("weatherData").innerText = `Current weather in ${city}: ${weather}`;
+      const weatherMain = data.weather[0].main; // e.g., "Clouds"
+      document.getElementById("weatherData").innerText = `Current weather in London: ${weatherMain}`;
     })
     .catch(error => {
-      console.error("Fetch error:", error);
-      document.getElementById("weatherData").innerText = "Failed to fetch weather data.";
+      document.getElementById("weatherData").innerText = "Could not fetch weather data.";
+      console.error("Error:", error);
     });
 });
