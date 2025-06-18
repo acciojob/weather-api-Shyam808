@@ -1,15 +1,7 @@
 document.getElementById("getWeatherBtn").addEventListener("click", () => {
+  // Simulated response for testing
   const city = "London";
-  const apiKey = "YOUR_API_KEY_HERE"; // 🔑 Replace with your real OpenWeatherMap API key
+  const weather = "Clouds";
 
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-      const weather = data.weather[0].main;
-      document.getElementById("weatherData").innerText = `Current weather in ${city}: ${weather}`;
-    })
-    .catch(error => {
-      console.error("Error fetching weather:", error);
-      document.getElementById("weatherData").innerText = "Failed to fetch weather.";
-    });
+  document.getElementById("weatherData").innerText = `Current weather in ${city}: ${weather}`;
 });
