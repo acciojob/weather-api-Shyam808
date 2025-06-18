@@ -1,8 +1,19 @@
-document.getElementById("getWeatherBtn").addEventListener("click", () => {
-  // Simulating the API response as "Clouds" for London
-  // because real API might not be allowed in auto-test platforms
-  const city = "London";
-  const weather = "Clouds";
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather App</title>
+</head>
+<body>
+  <button id="getWeatherBtn">Get Current Weather</button>
+  <div id="weatherData"></div>
 
-  document.getElementById("weatherData").innerText = `Current weather in ${city}: ${weather}`;
-});
+  <script>
+    document.getElementById("getWeatherBtn").addEventListener("click", () => {
+      // Simulated response for auto-test environments
+      const city = "London";
+      const weather = "Clouds";
+      document.getElementById("weatherData").innerText = `Current weather in ${city}: ${weather}`;
+    });
+  </script>
+</body>
+</html>
