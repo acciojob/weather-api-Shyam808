@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Weather App</title>
-</head>
-<body>
-  <button id="getWeatherBtn">Get Current Weather</button>
-  <div id="weatherData"></div>
+document.getElementById("getWeatherBtn").addEventListener("click", () => {
+  const city = "London";
+  const apiKey = "YOUR_API_KEY_HERE"; // 🔑 Replace with your real OpenWeatherMap API key
 
-  <script>
-    document.getElementById("getWeatherBtn").addEventListener("click", () => {
-      // Simulated response for auto-test environments
-      const city = "London";
-      const weather = "Clouds";
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      const weather = data.weather[0].main;
       document.getElementById("weatherData").innerText = `Current weather in ${city}: ${weather}`;
+    })
+    .catch(error => {
+      console.error("Error fetching weather:", error);
+      document.getElementById("weatherData").innerText = "Failed to fetch weather.";
     });
-  </script>
-</body>
-</html>
+});
