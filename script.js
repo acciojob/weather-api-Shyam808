@@ -1,7 +1,7 @@
 document.getElementById("getWeatherBtn").addEventListener("click", () => {
-  const apiKey = "https://openweathermap.org/find?q=vadodara";
+  const apiKey = "https://openweathermap.org/find?q=vadodara"; // Replace with your actual OpenWeatherMap API key
   const city = "Vadodara";
-  const url = `https://openweathermap.org/find?q=vadodara`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${Vadodara}&appid=${https://openweathermap.org/find?q=vadodara}`;
 
   fetch(url)
     .then(response => {
